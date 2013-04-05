@@ -4,6 +4,10 @@ title: 学习研究Bui
 description: 前几天看到一个类似Kissy的框架，基于学习的目的，做点小记录
 category: blog
 ---
+
+目录结构与打包流程的学习
+------------------------------------------------------
+
 ###Bui的文件结构
 * assets: css文件，基于bootstrap的css样式， 可以在此基础上编译出新的版本
 * build: js和css文件打包好的目录
@@ -21,3 +25,6 @@ category: blog
 ###生成文档
 * 使用jsduck进行编译文档, tools/jsduc/run.bat
 * 配置文件在tools/jsduck/config.json
+
+
+-----------------------------------------------------
