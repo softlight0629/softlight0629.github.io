@@ -1,0 +1,11 @@
+---
+layout: page
+---
+<link rel="stylesheet" href="/js/prettify/prettify.css" />
+<div id="content">
+  <div class="entry">
+    <h1 class="title"><a href="{{ page.url}}" title="{{ page.title }}">{{ page.title }}</a></h1>
+    <p class="date">{{ page.date|date:"%Y-%m-%d" }}</p>
+    {{ content }}
+  </div>
+</div>

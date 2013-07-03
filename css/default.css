@@ -1,0 +1,83 @@
+
+/* 重置浏览器CSS */
+html{color: #000;background: #FFF;}
+/* 重置内外边距 */
+body,div,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,form,fieldset,legend,input,textarea,p,pre,code,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,section,hgroup,menu,nav{margin: 0;padding: 0}
+
+/* 重置html5 标签 */
+article,aside,details,figcaption,figure,header,footer,hgroup,nav,menu,section{display: block;}
+
+/* 表单元素字体不继承父元素 */
+body,button,input,textarea,select{font-size:12px/1.5;}
+
+/* 去掉table cell边距并让其重合 */
+table{border-collapse: collapse;border-spacing: 0}
+
+/* 去除默认边框 */
+fieldset,img {border: 0}
+
+/* ie6 7 bug 内联样式 */
+iframe{display: block;}
+
+/* 去掉firefox下 此元素的边框 */
+abbr,acronym{border: 0;font-variant: normal;} 
+
+/* 一致的 del 样式 */
+del{text-decoration: line-through;}
+address,caption,cite,code,dfn,em,th,var {font-style:normal;font-weight:500;}
+
+/* 去掉列表前的标识 */
+ul,ol {list-style: none;}
+
+caption,th{text-align: left;}
+
+h1,h2,h3,h4,h5,h6{font-size: 100%;font-weight: 500;}
+q:before,q:after{content: ''}
+
+/* 统一上标和下标 */
+sup{vertical-align: top;}
+sub{vertical-align: bottom;}
+
+/* 清除浮动 */
+.clearfix:after{content: '';height: 0;visibility: hidden;clear: both;display: block;font-size: 0;}
+.clearfix{zoom:1;}
+
+/* 隐藏 */
+body .hide{display: none;}
+
+/* 设置内联 减少浮动带来的bug */
+.left,.right{display: inline-block;}
+.left{float: left;}
+.right{float: right;}
+
+
+/* 默认样式 */
+body{font-family: "微软雅黑","Arial","Helvetica","sans-serif";font-size: 16px;background: #FFF;}
+a{color: #000;text-decoration: none;}
+a:hover{text-decoration: underline;}
+h1{font-size: 30px;font-weight: bold;margin-bottom: 25px;}
+h2{font-size: 22px;font-weight: bold;margin-bottom: 25px;}
+h3{font-size: 18px;font-weight: bold;margin-bottom: 25px;}
+h4,h5,h6{font-weight: bold;;margin-bottom: 15px;}
+p{margin-bottom: 25px;line-height: 1.5em;}
+code{background: #eee;border: 1px solid #ccc;padding: 0 5px;font-family:"Courier";line-height:14px;font-size:14px;word-wrap:break-word;}
+
+
+/* Wrapper Style */
+#hr{margin-bottom: 45px;height: 25px;background: url(../images/hr.png) top left repeat-x;margin-top: -5px;}
+#logo {font-size: 15px;font-weight: bold;margin-top: 10px;padding-left: 2px;}
+#logo a{color:#ccc;}
+#logo a:hover{color:#666;text-decoration: none;}
+#wrapper{width: 650px;margin: 0 auto;}
+
+
+/* Cotent Style*/
+#content {
+
+}
+#content .title{text-align: center;margin-bottom: 15px;}
+#content .title a{text-decoration: none;}
+#content .date{color:#666;text-align: center;margin-bottom: 60px;}
+
+#content ul, #content ol {margin-left: 25px;margin-bottom: 25px;margin-top: -15px;}
+#content ul li, #content ol li {list-style: disc;margin-bottom: 5px;line-height: 1.5em;}
