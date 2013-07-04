@@ -66,7 +66,7 @@ pre code{background-color:transparent;border:none;padding:0;word-wrap:normal;}
 pre ol{margin-left:25px;list-style-type:decimal;}
 
 /* Wrapper Style */
-#hr{margin-bottom: 15px;height: 25px;background: url(../images/hr.png) top center no-repeat;margin-top: -14px;}
+#hr{margin-bottom: 15px;height: 25px;background: url(../images/hr.png) 0 0 no-repeat;margin-top: -13px;width: 650px;margin-left: auto;margin-right: auto;}
 #logo {font-size: 30px;font-weight: bold;margin-left: 10px;padding-left: 2px;margin-bottom: 45px;margin-right: 25px;}
 #logo a{color:#ccc;}
 #logo a:hover{color:#666;text-decoration: none;}
