@@ -25,3 +25,40 @@ category: blog
 * 使用jsduck进行编译文档, tools/jsduc/run.bat
 * 配置文件在tools/jsduck/config.json
 
+
+###来看看代码
+
+    var UA = $.UA || (function(){
+        var browser = $.browser,
+            versionNumber = numberify(browser.version),
+            /**
+             * 浏览器版本检测
+             * @class BUI.UA
+                     * @singleton
+             */
+            ua = 
+            {
+                /**
+                 * ie 版本
+                 * @type {Number}
+                 */
+                ie : browser.msie && versionNumber,
+
+                /**
+                 * webkit 版本
+                 * @type {Number}
+                 */
+                webkit : browser.webkit && versionNumber,
+                /**
+                 * opera 版本
+                 * @type {Number}
+                 */
+                opera : browser.opera && versionNumber,
+                /**
+                 * mozilla 火狐版本
+                 * @type {Number}
+                 */
+                mozilla : browser.mozilla && versionNumber
+            };
+        return ua;
+    })();
