@@ -4,6 +4,7 @@ title: Sublime Text 快捷键
 description: Sublime的快捷键,不用再去找了
 category: blog
 ---
+
 快捷键Sublime Text2 包含了大量快捷操作， 可以很方便修改和追加自己喜欢的快捷键
 查看快捷键的方式很简单：
 Prefereces -> Key Bindings -Defaults即可查看
@@ -30,7 +31,7 @@ Ctrl+W：关闭当前打开文件
 
 Ctrl+Shift+W：关闭所有打开文件
 
-ctrl+`显示python命令行
+ctrl+\`显示python命令行
 
 ###界面
 
@@ -68,9 +69,9 @@ ctrl+alt+上下箭头：多竖行同时编辑
 
 ###代码折叠
 
-ctrl+shift+[ 按照缩进指示折叠光标所在标签对或折叠所选内容
+ctrl+shift+\[ 按照缩进指示折叠光标所在标签对或折叠所选内容
 
-ctrl+shift+] 展开光标所在标签对内容或所选内容
+ctrl+shift+\] 展开光标所在标签对内容或所选内容
 
 ###行操作
 
@@ -92,9 +93,9 @@ ctrl+enter 在当前行后插入新行
 
 ctrl+shift+enter 在当前行前插入新行
 
-ctrl+[ 减少当前行缩进
+ctrl+\[ 减少当前行缩进
 
-ctrl+] 增加当前行缩进
+ctrl+\] 增加当前行缩进
 
 tab 增加当前行缩进
 
@@ -120,7 +121,7 @@ ctrl+t 光标所在位置左右字符或词互换
 
 Ctrl+Shift+V：粘贴并格式化
 
-Alt + Ctrl + ]  代码自动对齐
+Alt + Ctrl + \]  代码自动对齐
 
 ###XML/HTML
 
