@@ -1,6 +1,7 @@
 auto:          true
 
 pygments:      true
+markdown:      rdiscount
 paginate:      6
 permalink:     /:title
 
