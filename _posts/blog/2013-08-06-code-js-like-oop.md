@@ -80,6 +80,7 @@ js的内部就是这么做的。这就是一个简单的创建对象的方式
 
 肯定是有的。领悟javascript里面说到一种甘露模型， 就能很好的封装了这个类的继承以及构造函数的调用
 看下代码：
+
     function Class() {
         // 定义类的自身实例方法
         var aDefine = arguments[arguments.length - 1];
