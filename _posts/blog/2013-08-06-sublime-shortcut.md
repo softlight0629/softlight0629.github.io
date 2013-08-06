@@ -8,7 +8,7 @@ category: blog
 快捷键Sublime Text2 包含了大量快捷操作， 可以很方便修改和追加自己喜欢的快捷键
 查看快捷键的方式很简单：
 Prefereces -> Key Bindings -Defaults即可查看
-----------------------------------------------------------
+=============================================================================
 
 ###打开前往
 
@@ -162,8 +162,12 @@ Ctrl+Alt+K KeymapManager，快捷键管理。
 
 Ctrl+Alt+Enter ZenCoding，不解释。
 
+
+
 一些常用的插件
-------------------------------------------
+=============================================================================
+
+
 
 ###Alignment
 代码对齐，如写几个变量，选中这几行，Ctrl+Alt+A，哇，齐了。
@@ -216,3 +220,9 @@ Html格式化，右键Auto-Format Tags on Ducument。
 ###YUI Compressor
 
 压缩JS和CSS文件
+
+
+更多插件信息
+====================================================================
+[http://www.qianduan.net/essential-to-sublime-the-text-2-plugins.html](http://www.qianduan.net/essential-to-sublime-the-text-2-plugins.html)
+[http://wbond.net/sublime_packages/community](http://wbond.net/sublime_packages/community)
