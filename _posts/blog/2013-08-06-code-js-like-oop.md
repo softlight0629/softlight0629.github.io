@@ -199,5 +199,156 @@ js的内部就是这么做的。这就是一个简单的创建对象的方式
 
 在screate of javascript nija中有种方式， 就似乎真的可以让js就像写java类那样的去开发了
 
+    (function() {
+        var initializing = false,
+            superPattern = /xyz/.test(function() {xyz;})? /\b_super\b/ : /.*/;
 
+        // 给Object对象添加subClass方法
+        Object.subClass =  function(properties) {
+            var _super = this.prototype;
+
+            // 初始化父类
+            initializing = true;
+            var proto = new this();
+            initializing = false;
+
+            // 复制属性到原型
+            for (var name in properties) {
+
+                proto[name] = typeof properties[name] == "function" && typeof _super[name] == "function" && superPattern.test(properties[name]) ? 
+                // 覆盖父类方法
+                (function (name, fn) {
+                    return function() {
+                        var tmp = this._super;
+
+                        this._super = _super[name];
+
+                        var ret = fn.apply(this, arguments);
+
+                        this._super = tmp;
+
+                        return ret;
+                    }
+                })(name, properties[name]) : 
+                properties[name];
+            }
+
+            // 创建伪类构造函数
+            function Class {
+                if (!initializing && this.init) {
+                    this.init.apply(this, arguments);
+                }
+            }
+
+            // 赋给原型
+            Class.prototype = proto;
+
+            // 指向构造函数
+            Class.constructor = Class;
+
+            // 使得该类拥有可继承的能力
+            Class.subClass = arugments.callee;
+
+            return Class;
+
+        }
+    })();
+
+这里最主要的就是初始化和super方法这两部分。只要对这里理解了， 那么对于整个实现也就大致掌握了。
+
+为了使得子类拥有父类的功能， 我们一开始的时候， 就创建了父类的实例，然后对于子类的属性进行合并
+
+    initializing = true;
+    var proto = new this();
+    initializing = false;
+
+initializing在这里的作用， 主要是为了能够对父类的初始化进行保护， 避免在构造函数调用的时候， 父类还处于实例化的阶段。
+
+现在来看看_super的功能是如何实现的
+
+    proto[name] = typeof properties[name] == "function" && typeof _super[name] == "function" && superPattern.test(properties[name]) ? 
+        // 覆盖父类方法
+        (function (name, fn) {
+            return function() {
+                var tmp = this._super;
+
+                this._super = _super[name];
+
+                var ret = fn.apply(this, arguments);
+
+                this._super = tmp;
+
+                return ret;
+            }
+        })(name, properties[name]) : 
+        properties[name];
+
+在这段代码中， 检测了三个东西
+
+* 子类的属性是否是一个方法
+* 父类是否也存在该属性并且也是一个方法
+* 子类方法中是否引用了_super的调用
+
+如果这三个东西都存在， 我们就不能简简单单的只是复制下属性就可以。
+在这里我们注意到， 对于_super调用的检测， 是通过正则表达式去检测Funciton的序列化字符串来做到的。Function的这种能力可以说让我们在运行时有了改变代码的能力。是种比较强悍的能力吧。有些类库基于这种能力，写出很多不错的功能。比如， seajs里面的require引用， 也是基于这种检测的方式， 来搜集某一模块的依赖。
+
+现在我们来看看这段代码做了什么事情
+
+    (function (name, fn) {
+        return function() {
+            var tmp = this._super;
+
+            this._super = _super[name];
+
+            var ret = fn.apply(this, arguments);
+
+            this._super = tmp;
+
+            return ret;
+        }
+    })(name, properties[name])
+
+这段通过自执行的代码包装了实例的方法， 然后里面返回了一个新的方法， 通过改变this._super的指向父类的原型方法， 就可以调用到了父类的方法， 最后我们调用了子类的实例方法， 这样就能够在子类的方法中能够调用到父类的方法了。
+
+对于改造后的这个方法，我们看下如何改造先前的例子
+
+    var Person = Object.subClass({
+        init: function() {
+            alert('调用Person构造');
+        },
+
+        eat: function() {
+            alert('人吃饭');
+        }
+    })
+
+    var Employee = Person.subClass({
+        init: function() {
+            this._super();
+            alert('调用Employee构造');
+        },
+
+        eat: function() {
+            this._super();
+            alert('员工吃套餐');
+        }
+    })
+
+    var Manager = Employee.subClass({
+        init: function() {
+            this._super();
+            alert('调用Manager构造');
+        },
+
+        eat: function() {
+            alert('项目经理吃大餐');
+        }
+    })
+
+    var manager = new Manager();
+    manager.eat();
+
+这样，是不是跟面向对象的语言完全一样呢？当然对于方法的重载， js也没有那样的能力， 这个也是需要我们自己去实现， 不过js并没有强制规定说要对方法传递参数个数做强制的限制， 所以我们可以灵活的在方法内部去判断传递过来的参数的个数， 来模拟实现重载的功能。这里就不再多讲了。
+
+这样就可以在js中写Java一样， 可以做到灵活， 继承， 多变， 可以很好的做到复用， 也能运用许多的设计方法， 设计模式， 使得前端的开发， 变得更加有趣和有效率。
 
