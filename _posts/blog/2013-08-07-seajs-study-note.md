@@ -457,4 +457,49 @@ seajs在内部把功能划分了几大模块， 直接上代码可以看看
   
 
 
+###解析模块依赖
 
+    /** 
+     * The parser for dependencies 
+     * 解析模块依赖 
+     */  
+    ;(function(util) {  
+      
+      var REQUIRE_RE = /(?:^|[^.$])\brequire\s*\(\s*(["'])([^"'\s\)]+)\1\s*\)/g  
+      
+      
+      util.parseDependencies = function(code) {  
+        // Parse these `requires`:  
+        //   var a = require('a');  
+        //   someMethod(require('b'));  
+        //   require('c');  
+        //   ...  
+        // Doesn't parse:  
+        //   someInstance.require(...);  
+        // 解析含有require字段的依赖 ， 但是不解析实例化之后的实例的依赖  
+        var ret = [], match  
+      
+        code = removeComments(code)  
+        //从头开始匹配 lastIndex的值会随着匹配过程的进行而修改  
+        REQUIRE_RE.lastIndex = 0  
+      
+        // var asd = require('a'); 经过正则匹配后结果为 ["require('asd')","'" ,"asd"]  
+        while ((match = REQUIRE_RE.exec(code))) {  
+          if (match[2]) {  
+            ret.push(match[2])  
+          }  
+        }  
+      
+        //返回数组去重值  
+        return util.unique(ret)  
+      }  
+      
+      //删除注释 , 其实就是避免在正则匹配的时候，注释内还含有require信息，导致加载不必要的模块  
+      // See: research/remove-comments-safely  
+      function removeComments(code) {  
+        return code  
+            .replace(/^\s*\/\*[\s\S]*?\*\/\s*$/mg, '') // block comments  
+            .replace(/^\s*\/\/.*$/mg, '') // line comments  
+      }  
+      
+    })(seajs._util)  
