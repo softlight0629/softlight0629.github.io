@@ -97,15 +97,13 @@ pre ol{margin-left:25px;list-style-type:decimal;}
 #about a:hover {text-decoration:underline;}
 
 
-.index-artical ul{display:inline-block;width:290px;vertical-align:top;*float:left;zoom:1;}
+.index-artical ul{display:inline-block;vertical-align:top;*float:left;zoom:1;}
 .index-artical .index-left{padding-right:28px}
-.index-artical .index-mid {margin-top:15px;border-right:1px solid #ccc;width:1px;}
-.index-artical .index-right{padding-left:28px;}
 .index-artical h2{font-size:20px;}
 .index-artical h2 a{color:#444}
 .index-artical h2 a:hover {color:#E50053;text-decoration:none;}
-.index-artical li{margin-bottom:45px;}
-.title-desc {color:#aaa;font-style:italic;font-size:14px;display:block;text-align:left;margin-top:-20px;}
+.index-artical li{margin-bottom:45px;text-align: center;}
+.title-desc {color:#aaa;font-style:italic;font-size:14px;display:block;margin-top:-20px;}
 
 /**************目录导航**************/
 #menuIndex {position:fixed;top:60px;right:20px;width:200px;overflow:auto}

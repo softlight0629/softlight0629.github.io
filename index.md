@@ -12,7 +12,7 @@ layout: page
         </li>
     {% endfor %}
     </ul>
-
+<!-- 
     <ul class="index-mid"> </ul>
 
     <ul class="index-right">
@@ -24,7 +24,7 @@ layout: page
             <span class="title-desc">{{ post.description }}</span>
         </li>
     {% endfor %}
-    </ul>
+    </ul> -->
 </div>
 
 <script type="text/javascript">
